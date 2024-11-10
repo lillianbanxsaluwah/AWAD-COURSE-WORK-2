@@ -216,15 +216,15 @@
                       <div class="statistics-item">
                         <p>
                           <i class="icon-sm fa fa-user mr-2"></i>
-                          New users
+                          View Students
                         </p>
-                        <h2>54000</h2>
+                        <h2></h2>
                         <label class="badge badge-outline-success badge-pill">2.7% increase</label>
                       </div>
                       <div class="statistics-item">
                         <p>
                           <i class="icon-sm fas fa-hourglass-half mr-2"></i>
-                          Avg Time
+                          View Teachers
                         </p>
                         <h2>123.50</h2>
                         <label class="badge badge-outline-danger badge-pill">30% decrease</label>
@@ -266,6 +266,7 @@
               </div>
             </div>
           </div>
+          
           <div class="row">
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
@@ -292,6 +293,7 @@
               </div>
             </div>
           </div>
+
 
         </div>
         <!-- content-wrapper ends -->
