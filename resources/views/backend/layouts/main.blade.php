@@ -43,13 +43,14 @@
     <!-- End custom js for this page-->
 
    <script src="{{ asset('js/data-table.js') }}"></script>
+   <script src="{{ asset('js/chart.js') }}"></script>
     {{--   <script src="{{ asset('js/alerts.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/avgrund.js') }}"></script>
     <script src="{{ asset('js/bt-maxLength.js') }}"></script>
     <script src="{{ asset('js/c3.js') }}"></script>
     <script src="{{ asset('js/calendar.js') }}"></script>
-    <script src="{{ asset('js/chart.js') }}"></script>
+
     <script src="{{ asset('js/chartist.js') }}"></script>
     <script src="{{ asset('js/clipboard.js') }}"></script>
     <script src="{{ asset('js/codeEditor.js') }}"></script>

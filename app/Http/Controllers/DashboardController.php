@@ -2,84 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dashboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-    return view ('dashboard');
-    }
+        // Get counts for students, teachers, and sessions
+        $currentStudentsCount = DB::table('students')->count();
+        $currentTeachersCount = DB::table('teachers')->count();
+        $currentSessionsCount = DB::table('sessions')->count();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        // Get the total number of subjects
+        $totalSubjects = DB::table('subjects')->count();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // Get the total number of users (excluding failed jobs and tokens)
+        $totalUsers = DB::table('users')->count();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Dashboard  $dashboard
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Dashboard $dashboard)
-    {
-        //
-    }
+        // Get the number of students created each week
+        $studentData = DB::table('students')
+            ->selectRaw('YEARWEEK(created_at) as week, COUNT(*) as total')
+            ->groupBy('week')
+            ->orderBy('week')
+            ->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Dashboard  $dashboard
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Dashboard $dashboard)
-    {
-        //
-    }
+        // Get the number of teachers created each week
+        $teacherData = DB::table('teachers')
+            ->selectRaw('YEARWEEK(created_at) as week, COUNT(*) as total')
+            ->groupBy('week')
+            ->orderBy('week')
+            ->get();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dashboard  $dashboard
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Dashboard $dashboard)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Dashboard  $dashboard
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Dashboard $dashboard)
-    {
-        //
+        return view('dashboard', compact(
+            'currentStudentsCount',
+            'currentTeachersCount',
+            'currentSessionsCount',
+            'totalSubjects',
+            'totalUsers',
+            'studentData',
+            'teacherData'
+        ));
     }
 }

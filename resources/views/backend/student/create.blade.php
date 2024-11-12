@@ -94,7 +94,7 @@
 
                                     <div class="form-group">
                                         <label for="exampleTextarea1">Textarea</label>
-                                        <textarea class="form-control" id="exampleTextarea1" name="textarea   n   " rows="4"></textarea>
+                                        <textarea class="form-control" id="exampleTextarea1" name="textarea" rows="4"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">
                                         Submit

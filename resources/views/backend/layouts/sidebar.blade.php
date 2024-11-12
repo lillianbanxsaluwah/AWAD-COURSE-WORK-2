@@ -3,11 +3,11 @@
         <li class="nav-item nav-profile">
             <div class="nav-link">
                 <div class="profile-image">
-                    <img src="images/faces/face5.jpg" alt="image" />
+                    <img src="{{ Auth::user()->profile_photo_url }}" alt="image" />
                 </div>
                 <div class="profile-name">
                     <p class="name">
-                        Welcome Jane
+                        Welcome   {{ Auth::user()->name }}
                     </p>
                     <p class="designation">
                         Super Admin
@@ -16,7 +16,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index-2.html">
+            <a class="nav-link" href="{{ route("dashboard") }}">
                 <i class="fa fa-home menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
@@ -66,41 +66,21 @@
             </div>
         </li>
 
-        {{--  <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                aria-controls="page-layouts">
-                <i class="fab fa-trello menu-icon"></i>
-                <span class="menu-title">Enrollment</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="page-layouts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                            href="{{ route('enrollment.create') }}">New Students</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('enrollment.index') }}">Continous
-                            Students</a></li>
-                </ul>
-            </div>
-        </li>  --}}
-        {{--      <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
           <i class="fas fa-clipboard-list menu-icon"></i>
-          <span class="menu-title">Advanced Elements</span>
+          <span class="menu-title">Subjects</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-advanced">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dragula.html">Dragula</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/clipboard.html">Clipboard</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/context-menu.html">Context menu</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/slider.html">Sliders</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/carousel.html">Carousel</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/colcade.html">Colcade</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/loaders.html">Loaders</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('subject.create') }}">Add Subjects</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('subject.index')  }}">View Subjects</a></li>
+
           </ul>
         </div>
       </li>
-      <li class="nav-item">
+     {{--        <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
           <i class="fab fa-wpforms menu-icon"></i>
           <span class="menu-title">Form elements</span>

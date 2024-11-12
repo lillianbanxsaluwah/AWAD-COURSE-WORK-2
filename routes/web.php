@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\StudentController;
@@ -51,4 +52,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::delete('/level/{id}', [LevelController::class, 'destroy'])->name('level.destroy');
     Route::put('/level/{id}', [LevelController::class, 'update'])->name('level.update');
 
+
+    //subjects
+    Route::get('/subjects/create', [SubjectController::class, 'create'])->name('subject.create');
+    Route::get('subjects/{id}/edit', [SubjectController::class, 'edit'])->name('subject.edit');
+    Route::post('/subjects/store', [SubjectController::class, 'store'])->name('subject.store');
+    Route::get('/subjects', [SubjectController::class, 'index'])->name('subject.index');
+    Route::put('/subjects/{subject}', [SubjectController::class, 'update'])->name('subject.update');
+    Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subject.destroy');
 });
