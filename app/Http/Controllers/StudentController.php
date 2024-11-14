@@ -162,7 +162,7 @@ class StudentController extends Controller
      *
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function destroy($id)
     {
         // Retrieve the student record by ID
